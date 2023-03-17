@@ -46,12 +46,17 @@
             >About</NuxtLink
           >
         </li>
-        <li class="mb-0">
+        <li class="relative mb-0">
           <NuxtLink
             to="/cart"
             class="text-gray-700 text-lg font-bold tracking-wider hover:text-green-700"
           >
             <i class="fas fa-shopping-cart"></i>
+            <span
+              class="absolute top-0 right-0 -mt-1 -mr-4 w-4 h-4 bg-red-500 text-white text-xs flex items-center justify-center rounded-full"
+            >
+              {{ basketItemCount }}
+            </span>
             Cart
           </NuxtLink>
         </li>
@@ -81,14 +86,19 @@
             >Products</NuxtLink
           >
         </li>
-        <li class="mb-0">
+        <li class="relative mb-0">
           <NuxtLink
             to="/cart"
-            class="text-gray-700 text-lg font-bold tracking-wider hover:text-green-700"
+            class="text-gray-700 text-lg font-bold tracking-wider hover:text-green-700 flex items-center"
           >
-            <i class="fas fa-shopping-cart"></i>
-            <!-- add cart icon here -->
-            Cart
+          <span class="md:hidden mt-1">Cart</span>
+            <i class="fas fa-shopping-cart mt-0 ml-1 md:mt-0"></i>
+            <span
+              class="bg-red-500 text-white text-xs flex items-center justify-center rounded-full px-1 ml-2 md:absolute md:-mt-1 md:-mr-2 md:w-4 md:h-4"
+            >
+              {{ basketItemCount }}
+            </span>
+            
           </NuxtLink>
         </li>
       </ul>
@@ -97,17 +107,23 @@
 </template>
 
 <script lang="ts">
+import basketStore from "~/store/basket";
+
 export default {
   data() {
     return {
       isOpen: false,
     };
   },
+  computed: {
+    basketItemCount() {
+      return basketStore.basket.quantity;
+    },
+  },
 };
 </script>
 
 <style scoped>
-
 .logo {
   height: 50px;
 }
