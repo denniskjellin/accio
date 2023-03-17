@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-gray-50;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+/* max-width for paragrafs according to web usbaility */
+p {
+    max-width: 65ch;
+    color: #2e2e2e;
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: #2e2e2e;
+  }
+  /* btn */
+  .btn-viewp {
+    background-color: #1a8669;
+    color: #fff;
+    padding: 0.8rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.5s ease;
+  }
+
+  .btn-viewp-c {
+    background-color: #1a8669;
+    color: #fff;
+    padding: 0.5rem 3.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background-color 0.5s ease;
+  }
+  
+  .btn-viewp:hover {
+    background-color: #0e5c35;
+    color: #fff;
+    transition: background-color 0.5s ease;
+  }
+
+  .btn-viewp-c:hover {
+    background-color: #0e5c35;
+    color: #fff;
+    transition: background-color 0.5s ease;
+  }
+
+ 
+
+@layer components {
+    .btn-card {
+        @apply text-white font-bold py-2 px-4 rounded;
+         background-color: #333333;
+        border-radius: 25px;
+        padding: .7rem 1rem;
+
+        transition: background-color 0.5s ease; 
+    }
+
+    .btn-card:hover {
+        background-color:#0e5c35;
+        color: #fff;
+        transition: background-color 0.5s ease;
+      }
+
+    .card {
+        @apply shadow-md rounded-lg overflow-hidden;
+        background-color: #ffffffde;
+
+    
+    }
+}
